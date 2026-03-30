@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/learning_drifting.egg-info/PKG-INFO
+src/learning_drifting.egg-info/SOURCES.txt
+src/learning_drifting.egg-info/dependency_links.txt
+src/learning_drifting.egg-info/requires.txt
+src/learning_drifting.egg-info/top_level.txt
+src/learning_drifting/train/__init__.py
+src/learning_drifting/train/prepare_dataset/__init__.py
+src/learning_drifting/train/prepare_dataset/toy_datasets.py

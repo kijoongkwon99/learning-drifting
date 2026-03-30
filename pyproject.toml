@@ -1,0 +1,26 @@
+[project]
+name = "learning-drifting"
+version = "0.1.0"
+description = "Drifting practice code"
+authors = [
+    { name = "kijoongkwon" }
+]
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = [
+    "torch",
+    "numpy",
+    "matplotlib",
+    "tqdm",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
