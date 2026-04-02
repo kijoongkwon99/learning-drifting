@@ -32,7 +32,7 @@ class ScriptArguments:
 
     learning_rate: float = 1e-3
     batch_size: int = 4096
-    iterations: int = 2000
+    iterations: int = 20000
     log_every: int = 200
     hidden_dim: int = 512
     seed: int = 74
@@ -53,7 +53,7 @@ def build_model(args: ScriptArguments, dataset: SyntheticDataset) -> torch.nn.Mo
 
 def build_method(args: ScriptArguments) -> torch.nn.Module:
     if args.method == "vanilla_drifting":
-        return Drifting()
+        return Drifting(normalize="xy")
 
     else:
         raise ValueError(f"Unkown method: {args.method}")
@@ -127,10 +127,10 @@ def main(args:ScriptArguments) -> None:
         visualization.plot_training_snapshots(
             model=model,
             dataset=dataset,
-            checkpoint_steps=[1, 200, 400, 600, 800, 1200, 1600, 2000],
+            checkpoint_steps=[1, 200, 400, 600, 800, 1000, 1600, 2000], #10000, 20000],
             checkpoint_dir=output_dir / "per_steps" / "ckpt",  
             output_path=output_dir / "training_snapshots.png",
-            num_samples=200_000,
+            num_samples=args.plot_num_samples,
             noise_dim=dataset.dim,
         )
 
